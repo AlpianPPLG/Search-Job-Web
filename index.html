@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Web Iseng</title>
+    <style>
+      .hamburger {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        transition: all 0.25s;
+        position: relative;
+      }
+
+      .hamburger-top,
+      .hamburger-middle,
+      .hamburger-bottom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background: #000;
+        transform: rotate(0);
+        transition: all 0.5s;
+      }
+
+      .hamburger-middle {
+        transform: translateY(7px);
+      }
+
+      .hamburger-bottom {
+        transform: translateY(14px);
+      }
+
+      .open .hamburger-top {
+        transform: rotate(45deg) translateY(6px) translate(6px);
+      }
+
+      .open .hamburger-middle {
+        display: none;
+      }
+
+      .open .hamburger-bottom {
+        transform: rotate(-45deg) translateY(6px) translate(-6px);
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="absolute inset-0 bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 opacity-50 backdrop-blur-md backdrop-blur-sm sticky top-0 z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 flex justify-between items-center py-4"
+      >
+        <!-- Logo -->
+        <div class="text-xl font-bold">
+          <a href="#">WebTemplate</a>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="hidden md:flex space-x-6 flex-1 justify-center">
+          <a href="#home" class="text-gray-900 hover:text-gray-900">Home</a>
+          <a href="#discover" class="text-gray-900 hover:text-gray-900"
+            >Discover</a
+          >
+          <a href="#post-a-job" class="text-gray-900 hover:text-gray-900"
+            >Post A Job</a
+          >
+          <a href="#contact" class="text-gray-900 hover:text-gray-900"
+            >Contact</a
+          >
+        </div>
+
+        <!-- Sign Up Button (Desktop) -->
+        <div class="hidden md:flex">
+          <a
+            href="#"
+            class="bg-indigo-800 text-white px-6 py-2 rounded-full hover:bg-blue-700"
+            >Sign Up</a
+          >
+        </div>
+
+        <!-- Hamburger Menu -->
+        <div class="md:hidden">
+          <div class="hamburger" id="hamburger">
+            <div class="hamburger-top"></div>
+            <div class="hamburger-middle"></div>
+            <div class="hamburger-bottom"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hamburger Menu Content -->
+      <div
+        class="md:hidden absolute top-16 right-4 bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 backdrop-blur-sm shadow-lg rounded-lg w-48 py-2 hidden"
+        id="hamburger-menu"
+      >
+        <a href="#home" class="block px-4 py-2">Home</a>
+        <a href="#discover" class="block px-4 py-2">Discover</a>
+        <a href="#post-a-job" class="block px-4 py-2">Post A Job</a>
+        <a href="#contact" class="block px-4 py-2">Contact</a>
+        <a
+          href="#"
+          class="block px-4 py-2 mt-2 bg-indigo-800 text-white text-center rounded-full hover:bg-blue-700"
+          >Sign Up</a
+        >
+      </div>
+    </nav>
+
+    <section
+      class="relative bg-gray-100 h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden"
+      id="home"
+    >
+      <!-- Background Blur -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 opacity-50 backdrop-blur-md"
+      ></div>
+
+      <!-- Content -->
+      <div
+        class="relative z-10 flex flex-col justify-center items-center text-center"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Get Connected To The Best Remote<br />
+          Jobs In Your Field
+        </h1>
+        <p class="text-gray-600 max-w-xl mb-8">
+          Discover opportunities to work remotely with top companies around the
+          world. Start your journey today and find the perfect role that matches
+          your skills.
+        </p>
+        <button
+          class="bg-indigo-800 text-white px-6 py-3 rounded-full hover:bg-blue-700 flex items-center justify-center"
+        >
+          Explore Remote Jobs
+          <svg
+            class="w-5 h-5 ml-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+    <section class="relative bg-gray-100 py-16" id="discover">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 opacity-50 backdrop-blur-md"
+      ></div>
+      <div class="relative max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-8">
+          Discover Our Job Opportunities
+        </h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card 1 -->
+          <div
+            class="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10"
+          >
+            <span
+              class="absolute top-10 z-0 h-20 w-20 rounded-full bg-sky-500 transition-all duration-300 group-hover:scale-[10]"
+            ></span>
+            <div class="relative z-10 mx-auto max-w-md">
+              <span
+                class="grid h-20 w-20 place-items-center rounded-full bg-sky-500 transition-all duration-300 group-hover:bg-sky-400"
+              >
+                <!-- Icon for Figma -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="h-10 w-10 text-white"
+                >
+                  <path
+                    d="M8.8 4.8h6.4v14.4H8.8V4.8zM12 2.4c1.6 0 3.2.4 4.6 1.1L14.4 6.2c-1-.6-2.1-1-3.3-1.1-2.8 0-5.1 2.2-5.1 5.1 0 2.9 2.3 5.2 5.1 5.2 1.2 0 2.3-.4 3.3-1.1L16.4 18c-1.4.7-3 .9-4.6.9-3.7 0-6.7-3-6.7-6.7 0-3.7 3-6.7 6.7-6.7z"
+                  />
+                </svg>
+              </span>
+              <div>
+                <p class="text-lg font-semibold text-gray-800">
+                  UI/UX Designer
+                </p>
+              </div>
+              <div
+                class="space-y-6 pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90"
+              >
+                <p>
+                  Design user interfaces, create prototypes, and collaborate
+                  with developers to build seamless digital experiences.
+                </p>
+              </div>
+              <div class="pt-5 text-base font-semibold leading-7">
+                <p>
+                  <a
+                    href="#"
+                    class="text-sky-500 transition-all duration-300 group-hover:text-white"
+                    >Learn More &rarr;</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10"
+          >
+            <span
+              class="absolute top-10 z-0 h-20 w-20 rounded-full bg-sky-500 transition-all duration-300 group-hover:scale-[10]"
+            ></span>
+            <div class="relative z-10 mx-auto max-w-md">
+              <span
+                class="grid h-20 w-20 place-items-center rounded-full bg-sky-500 transition-all duration-300 group-hover:bg-sky-400"
+              >
+                <!-- Icon for Designer -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-10 w-10 text-white transition-all"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6-6 6 6m-6-6v12"
+                  />
+                </svg>
+              </span>
+              <div>
+                <p class="text-lg font-semibold text-gray-800">
+                  UI/UX Designer
+                </p>
+              </div>
+              <div
+                class="space-y-6 pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90"
+              >
+                <p>
+                  Create visually appealing designs, develop user interfaces,
+                  and enhance user experience.
+                </p>
+              </div>
+              <div class="pt-5 text-base font-semibold leading-7">
+                <p>
+                  <a
+                    href="#"
+                    class="text-sky-500 transition-all duration-300 group-hover:text-white"
+                    >Learn More &rarr;</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="group relative cursor-pointer overflow-hidden bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:mx-auto sm:max-w-sm sm:rounded-lg sm:px-10"
+          >
+            <span
+              class="absolute top-10 z-0 h-20 w-20 rounded-full bg-sky-500 transition-all duration-300 group-hover:scale-[10]"
+            ></span>
+            <div class="relative z-10 mx-auto max-w-md">
+              <span
+                class="grid h-20 w-20 place-items-center rounded-full bg-sky-500 transition-all duration-300 group-hover:bg-sky-400"
+              >
+                <!-- Icon for Developer -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-10 w-10 text-white transition-all"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 12H3M15 12l-3 3m3-3l-3-3"
+                  />
+                </svg>
+              </span>
+              <div>
+                <p class="text-lg font-semibold text-gray-800">
+                  UI/UX Designer
+                </p>
+              </div>
+              <div
+                class="space-y-6 pt-5 text-base leading-7 text-gray-600 transition-all duration-300 group-hover:text-white/90"
+              >
+                <p>
+                  Develop and maintain software applications, ensure
+                  performance, and work on new features and functionalities.
+                </p>
+              </div>
+              <div class="pt-5 text-base font-semibold leading-7">
+                <p>
+                  <a
+                    href="#"
+                    class="text-sky-500 transition-all duration-300 group-hover:text-white"
+                    >Learn More &rarr;</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="relative bg-gray-100 py-12" id="post-a-job">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 opacity-50 backdrop-blur-md"
+      ></div>
+      <div class="relative container mx-auto px-4">
+        <h2 class="text-3xl font-bold mb-8 text-center text-gray-800">
+          Post a Job
+        </h2>
+        <div class="flex flex-wrap -mx-4">
+          <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+            <form class="bg-white rounded-lg p-8 shadow-lg relative z-10">
+              <div>
+                <label
+                  for="title"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Job Title</label
+                >
+                <input
+                  type="text"
+                  id="title"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Software Engineer"
+                />
+              </div>
+              <div class="mt-6">
+                <label
+                  for="description"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Job Description</label
+                >
+                <textarea
+                  id="description"
+                  rows="4"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                ></textarea>
+              </div>
+              <div class="mt-6">
+                <label
+                  for="skills"
+                  class="block mb-2 text-sm font-medium text-gray-900"
+                  >Required Skills</label
+                >
+                <input
+                  type="text"
+                  id="skills"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="HTML, CSS, JavaScript"
+                />
+              </div>
+              <div class="mt-6">
+                <button
+                  type="submit"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium"
+                >
+                  Post Job
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="w-full md:w-1/2 px-4">
+            <div
+              class="bg-gray-50 rounded-lg p-8 h-full shadow-lg relative z-10"
+            >
+              <h3 class="text-xl font-bold mb-6 text-gray-800">Job Details</h3>
+              <div class="mb-4">
+                <p class="font-semibold text-gray-900">Job Title</p>
+                <p class="text-gray-600">Software Engineer</p>
+              </div>
+              <div class="mb-4">
+                <p class="font-semibold text-gray-900">Job Description</p>
+                <p class="text-gray-600">
+                  We are looking for a skilled software engineer to join our
+                  team. The ideal candidate should have experience in building
+                  scalable applications and have a good understanding of
+                  software development best practices.
+                </p>
+              </div>
+              <div class="mb-4">
+                <p class="font-semibold text-gray-900">Required Skills</p>
+                <ul class="list-disc list-inside">
+                  <li class="text-gray-600">HTML</li>
+                  <li class="text-gray-600">CSS</li>
+                  <li class="text-gray-600">JavaScript</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="relative py-16 px-4 lg:px-8" id="contact">
+      <!-- Background Gradient and Blur -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 opacity-50 backdrop-blur-md"
+      ></div>
+
+      <div class="relative max-w-3xl mx-auto">
+        <div class="text-center">
+          <h2 class="text-4xl font-bold text-gray-900">Get in Touch</h2>
+          <p class="mt-4 text-lg text-gray-600">
+            We're here to help and answer any question you might have. We look
+            forward to hearing from you!
+          </p>
+        </div>
+        <div class="mt-12">
+          <form action="#" method="POST" class="space-y-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="first-name" class="sr-only">First Name</label>
+                <input
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  autocomplete="given-name"
+                  placeholder="First Name"
+                  class="py-3 px-4 block w-full shadow-md border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                />
+              </div>
+              <div>
+                <label for="last-name" class="sr-only">Last Name</label>
+                <input
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  autocomplete="family-name"
+                  placeholder="Last Name"
+                  class="py-3 px-4 block w-full shadow-md border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                />
+              </div>
+            </div>
+            <div>
+              <label for="email" class="sr-only">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="email"
+                placeholder="Your Email"
+                class="py-3 px-4 block w-full shadow-md border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label for="message" class="sr-only">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Your Message"
+                class="py-3 px-4 block w-full shadow-md border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              ></textarea>
+            </div>
+            <div class="text-center">
+              <button
+                type="submit"
+                class="inline-flex items-center justify-center py-3 px-8 border border-transparent text-lg font-medium rounded-full text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-10">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Company Info -->
+        <div>
+          <h2 class="text-xl font-bold mb-4">Company Name</h2>
+          <p class="text-gray-400">
+            Connecting you to the best remote jobs in your field.
+          </p>
+          <p class="text-gray-400 mt-4">
+            Address: 1234 Street Name, City, State, 56789
+          </p>
+          <p class="text-gray-400">Phone: (123) 456-7890</p>
+          <p class="text-gray-400">Email: info@company.com</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h2 class="text-xl font-bold mb-4">Quick Links</h2>
+          <ul>
+            <li>
+              <a href="#home" class="text-gray-400 hover:text-white">Home</a>
+            </li>
+            <li>
+              <a href="#discover" class="text-gray-400 hover:text-white"
+                >Discover</a
+              >
+            </li>
+            <li>
+              <a href="#post-a-job" class="text-gray-400 hover:text-white"
+                >Post A Jobs</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="text-gray-400 hover:text-white"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h2 class="text-xl font-bold mb-4">Services</h2>
+          <ul>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-white"
+                >Job Placement</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-white"
+                >Resume Review</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-white"
+                >Career Counseling</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-white"
+                >Workshops & Events</a
+              >
+            </li>
+            <li>
+              <a href="#" class="text-gray-400 hover:text-white"
+                >Employer Services</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Media & Newsletter -->
+        <div>
+          <h2 class="text-xl font-bold mb-4">Connect With Us</h2>
+          <div class="flex space-x-4 mb-4">
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 5.5 4.46 9.96 9.96 9.96 5.5 0 9.96-4.46 9.96-9.96 0-5.5-4.46-9.96-9.96-9.96zm0 18.84c-4.89 0-8.88-3.99-8.88-8.88 0-4.89 3.99-8.88 8.88-8.88 4.89 0 8.88 3.99 8.88 8.88 0 4.89-3.99 8.88-8.88 8.88z"
+                />
+                <path
+                  d="M16.8 10.8h-1.68v5.04h-2.88v-5.04h-1.68v-2.16h1.68v-1.44c0-1.32.72-2.16 1.92-2.16h1.68v2.16h-1.2c-.48 0-.72.24-.72.72v1.44h2.16l-.24 2.16z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 4.56c-.88.39-1.83.64-2.82.75 1.01-.61 1.79-1.56 2.16-2.7-.95.56-2.02.98-3.15 1.2-.9-.96-2.18-1.55-3.6-1.55-2.72 0-4.92 2.2-4.92 4.92 0 .39.04.76.12 1.12-4.09-.2-7.71-2.17-10.14-5.15-.43.75-.68 1.62-.68 2.56 0 1.76.9 3.3 2.26 4.21-.84-.03-1.63-.26-2.32-.64v.06c0 2.46 1.75 4.51 4.07 4.98-.43.12-.88.18-1.34.18-.33 0-.65-.03-.96-.09.65 2.03 2.54 3.51 4.78 3.55-1.75 1.38-3.95 2.21-6.35 2.21-.41 0-.81-.02-1.2-.07 2.26 1.45 4.94 2.3 7.82 2.3 9.38 0 14.5-7.77 14.5-14.5 0-.22 0-.45-.02-.67.99-.72 1.85-1.62 2.54-2.64z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.63 0-12 5.37-12 12 0 6.08 4.49 11.09 10.29 11.92v-8.37h-3.09v-3.55h3.09v-2.68c0-3.05 1.83-4.72 4.6-4.72 1.34 0 2.73.24 2.73.24v3h-1.54c-1.52 0-1.99.94-1.99 1.9v2.26h3.38l-.54 3.55h-2.84v8.37c5.8-.83 10.29-5.84 10.29-11.92 0-6.63-5.37-12-12-12z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M21.59 6.42c-.2-1.61-.81-2.79-1.61-3.59-.8-.8-1.98-1.41-3.59-1.61-1.59-.2-6.36-.2-6.36-.2s-4.77 0-6.36.2c-1.61.2-2.79.81-3.59 1.61-.8.8-1.41 1.98-1.61 3.59-.2 1.59-.2 6.36-.2 6.36s0 4.77.2 6.36c.2 1.61.81 2.79 1.61 3.59.8.8 1.98 1.41 3.59 1.61 1.59.2 6.36.2 6.36.2s4.77 0 6.36-.2c1.61-.2 2.79-.81 3.59-1.61.8-.8 1.41-1.98 1.61-3.59.2-1.59.2-6.36.2-6.36s0-4.77-.2-6.36zm-12.59 9.78v-7.56l6.42 3.78-6.42 3.78z"
+                />
+              </svg>
+            </a>
+          </div>
+          <form class="flex flex-col">
+            <label for="email" class="text-gray-400 mb-2"
+              >Subscribe to our newsletter</label
+            >
+            <div class="flex">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                class="w-full p-2 rounded-l-md focus:outline-none focus:ring focus:ring-gray-300"
+              />
+              <button
+                type="submit"
+                class="bg-blue-600 p-5 rounded-r-md ml-3 hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
+              >
+                Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-800 mt-10 pt-4">
+        <div
+          class="container mx-auto flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400">
+            &copy; 2024 Company Name. All rights reserved.
+          </p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-400 hover:text-white"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white"
+              >Terms of Service</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const hamburgerMenu = document.getElementById("hamburger-menu");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("open");
+        hamburgerMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
